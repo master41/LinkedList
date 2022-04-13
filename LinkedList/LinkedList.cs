@@ -58,9 +58,11 @@ namespace LinkedList
             // Видалення елементу із початку списку.
             T component = first.item;
             first = first.next;
-            if (IsEmpty)
-            { last = null; }
             count--;
+            if (IsEmpty)
+            // Для повернення пам'яті на видалений вузол,
+            // на який продовжує вказувати last.
+            { last = null; }
             return component;
         }
 
@@ -73,7 +75,7 @@ namespace LinkedList
             return current != null;
         }
 
-        // Видалення елементу (першого входження) component із списку.
+        // Видалення елементу (першого входження) component зі списку.
         public bool Remove(T component)
         {
             // Вузол перед вузлом, що видаляється.
